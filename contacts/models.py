@@ -10,6 +10,7 @@ class Contact(models.Model):
 
     name = models.CharField(max_length=255)
     email = models.EmailField(null=True, blank=True)
+    birthday = models.CharField(max_length=255, null=True, blank=True)
     phone_number = models.CharField(max_length=11,
                                     validators=[phone_regex],
                                     null=True,
@@ -19,3 +20,4 @@ class Contact(models.Model):
     city = models.CharField(max_length=255, null=True, blank=True)
     state = USStateField(null=True, blank=True)
     zip_code = USZipCodeField(null=True, blank=True)
+    company_name = models.CharField(max_length=255, null=True, blank=True)
