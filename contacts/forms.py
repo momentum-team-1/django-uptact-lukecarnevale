@@ -1,5 +1,6 @@
 from django import forms
 from .models import Contact
+# , AddNote
 
 
 class ContactForm(forms.ModelForm):
@@ -16,4 +17,12 @@ class ContactForm(forms.ModelForm):
             'phone_number',
             'email',
             'birthday',
+            'add_note',
         ]
+
+    # class AddNote(forms.ModelForm):
+    #     class Meta:
+    #         model = AddNote
+    #         fields = [
+    #         'add_note',
+    #     ]

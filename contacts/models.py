@@ -10,7 +10,7 @@ class Contact(models.Model):
 
     name = models.CharField(max_length=255)
     email = models.EmailField(null=True, blank=True)
-    birthday = models.CharField(max_length=255, null=True, blank=True)
+    birthday = models.DateField(max_length=255, null=True, blank=True)
     phone_number = models.CharField(max_length=11,
                                     validators=[phone_regex],
                                     null=True,
@@ -21,3 +21,9 @@ class Contact(models.Model):
     state = USStateField(null=True, blank=True)
     zip_code = USZipCodeField(null=True, blank=True)
     company_name = models.CharField(max_length=255, null=True, blank=True)
+    add_note = models.CharField(max_length=255, null=True, blank=True,)
+
+# class AddNote (models.Model):
+# 	contact = models.ForeignKey(to=Contact, on_delete=models.CASCADE, related_name= "add_note")
+# # auto_now_add = DateTimeField()
+# add_note = models.CharField(max_length=255) 
