@@ -21,9 +21,12 @@ class Contact(models.Model):
     state = USStateField(null=True, blank=True)
     zip_code = USZipCodeField(null=True, blank=True)
     company_name = models.CharField(max_length=255, null=True, blank=True)
-    add_note = models.CharField(max_length=255, null=True, blank=True,)
+    # add_note = models.CharField(max_length=255, null=True, blank=True,)
 
-# class AddNote (models.Model):
-# 	contact = models.ForeignKey(to=Contact, on_delete=models.CASCADE, related_name= "add_note")
-# # auto_now_add = DateTimeField()
-# add_note = models.CharField(max_length=255) 
+class Note (models.Model):
+	contact = models.ForeignKey(to=Contact, on_delete=models.CASCADE, related_name= "notes")
+text = models.CharField(max_length=500, null=True, blank=True)
+time_stamp = models.DateTimeField(auto_now_add=True)
+
+def __str__(self):
+    return self.text

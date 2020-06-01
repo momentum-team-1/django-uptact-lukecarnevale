@@ -8,9 +8,7 @@
 <div class="flex flex-wrap">
   {% for contact in contacts %}
   <div class="w-33 pa3">
-    <h2>{{ contact.name }}</h2>
-    <h3>{{ contact.company_name }}</h3>
-
+    <h2><a href="{% url 'show_contact' pk=contact.pk %}">{{ contact.name }}</a></h2>
     <div class="flex">
       <div class="pr2"><i class="icofont-location-pin"></i></div>
       <div>
@@ -35,10 +33,10 @@
       <div>{{ contact.email }}</div>
     </div>
     {% endif %}
-
+    
     {% if contact.birthday %}
     <div class="flex">
-      <div class="pr2"><i class="icofont-ui-birthday-cake"></i></div>
+      <div class="pr2"><i></i></div>
       <div>{{ contact.birthday }}</div>
     </div>
     {% endif %}
@@ -49,15 +47,5 @@
     </p>
   </div>
   {% endfor %}
-
-  {% if contact.add_note %}
-  <div class="flex">
-    <div class="pr2"><i class="icofont-pencil"></i></div>
-    <div>{{ contact.add_note }}</div>
-  </div>
-  {% endif %}
-
-
-
 </div>  
 {% endblock %}
